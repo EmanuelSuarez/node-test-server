@@ -1,8 +1,7 @@
 const mongoose = require('mongoose')
 
-const MONGODB_URI = 'mongodb://localhost/ghaCopilot'
 
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 })
