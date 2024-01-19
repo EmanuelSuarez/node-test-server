@@ -11,15 +11,15 @@ const ExportFlightSchema = new Schema ({
      },
      gate: {
       type: Date,
-      required: true
+      required: false
      },
      etd: {
         type: Date,
-        required: true
+        required: false
      },
      atd: {
         type: Date,
-        required: true
+        required: false
      },
      date: {
         type: Date,
