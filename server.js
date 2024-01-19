@@ -42,8 +42,9 @@ setTimeout(() => {
 }, 20);
 
 
-app.get('/', (req, res) =>{
-    res.send('Hello World!!')
+app.get('/', async (req, res)  => {
+    const flights = await ExportFlight.find()
+    res.send(flights)
 })
 
 app.listen(8080)
