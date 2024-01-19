@@ -4,7 +4,7 @@ const ExportFlight = require('./models/ExportFlight')
 
 const app = express()
 
-// require('./database')
+require('./database')
 
 const trackedFlights = ['AV218', 'AV88', 'AV646']
 
