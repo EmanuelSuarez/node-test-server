@@ -6,9 +6,9 @@ const app = express()
 
 require('./database')
 
-const trackedFlights = ['AV88']
+const trackedFlights = ['AV88', 'AM31']
 
-setTimeout(() => {
+setInterval(() => {
     trackedFlights.forEach(async (flight) => {
         let flightStatus = []
         try {
@@ -33,7 +33,7 @@ setTimeout(() => {
                     // look into db to find if the flight already exists
                     const dbFlight = await ExportFlight.find({flight: flight_iata}, {date: dep_time})
                     // if exists, update the document
-                    if (dbFlight) {
+                    if (dbFlight.length > 0) {
                         console.log('flight found in db', dbFlight);
                         const { _id } = dbFlight
                         ExportFlight.findById( { _id: _id },
@@ -65,7 +65,7 @@ setTimeout(() => {
         }
     console.log(flightStatus);
     })
-}, 20);
+}, 20000);
 
 
 app.get('/', async (req, res)  => {
