@@ -31,9 +31,10 @@ setTimeout(() => {
                 const NewFlight = new ExportFlight({flight: flight_iata, origin: dep_iata, gate: dep_gate, etd: dep_estimated, atd: dep_actual, date: dep_time, destination: arr_iata, status: status})
                 try {
                     // look into db to find if the flight already exists
-                    const dbFlight = await db.test.find({flight: flight_iata}, {date: dep_time})
+                    const dbFlight = await ExportFlight.find({flight: flight_iata}, {date: dep_time})
                     // if exists, update the document
                     if (dbFlight) {
+                        console.log('flight found in db');
                         const { _id } = dbFlight
                         db.movies.updateOne( { _id: _id },
                         {
