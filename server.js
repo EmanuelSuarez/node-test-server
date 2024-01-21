@@ -36,7 +36,7 @@ setTimeout(() => {
                     if (dbFlight) {
                         console.log('flight found in db');
                         const { _id } = dbFlight
-                        db.movies.updateOne( { _id: _id },
+                        ExportFlight.update( { _id: _id },
                         {
                         $set: {
                             gate: NewFlight.gate,
