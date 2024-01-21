@@ -65,7 +65,7 @@ setInterval(() => {
         }
     console.log(flightStatus);
     })
-}, 20000);
+}, 1200000);
 
 
 app.get('/', async (req, res)  => {
