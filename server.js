@@ -34,9 +34,9 @@ setTimeout(() => {
                     const dbFlight = await ExportFlight.find({flight: flight_iata}, {date: dep_time})
                     // if exists, update the document
                     if (dbFlight) {
-                        console.log('flight found in db');
+                        console.log('flight found in db', dbFlight);
                         const { _id } = dbFlight
-                        ExportFlight.update( { _id: _id },
+                        ExportFlight.findById( { _id: _id },
                         {
                         $set: {
                             gate: NewFlight.gate,
